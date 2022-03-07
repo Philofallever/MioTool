@@ -18,6 +18,23 @@ namespace MioTool
                 anim.Play(clip);
         }
 
+        [BoxGroup("Animation"), Button, ShowIf(nameof(ValidicateAnimation))]
+        void PlayRandAnim()
+        {
+            var anim = GetComponentInChildren<Animation>();
+            var i = Random.Range(0, anim.GetClipCount());
+            foreach (AnimationState animState in anim)
+            {
+                if (i-- == 0)
+                {
+                    anim.Play(animState.name);
+                    break;
+                }
+
+            }
+        }
+
+
         [PropertySpace(SpaceAfter = 10)]
         [BoxGroup("Animation"), Button, ShowIf(nameof(ValidicateAnimation))]
         void DumpPlayingAnim()

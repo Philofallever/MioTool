@@ -10,3 +10,6 @@ What is a GOAP Agent?
     - A cost is used by the planner to decide between which plan to take. A dynamic cost can help your agents achieve fuzziness logic.
 - Planner: Plans a sequence of actions based on the current states to satisfy a goal.
 - Agent States and World States, these states are persistent effects.
+
+
+When an action completes, successfully or not, no after effects will be applied to any of the Agent's states or the World States. It is only used in the planner. 
