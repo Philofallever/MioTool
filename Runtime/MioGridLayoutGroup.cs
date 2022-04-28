@@ -1,6 +1,6 @@
-﻿using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+
 // ReSharper disable PossibleLossOfFraction
 
 [DisallowMultipleComponent]
@@ -9,35 +9,24 @@ using UnityEngine.UI;
 [AddComponentMenu("Layout/Mio Grid Layout Group", 154)]
 public class MioGridLayoutGroup : GridLayoutGroup
 {
-    [SerializeField, Tooltip("使用第一个子物品尺寸")]
+    [SerializeField]
     protected bool _useChildSize = true;
 
-    [SerializeField, Tooltip("居中")]
+    [SerializeField]
     protected bool _childMidd = true;
-
-
-    private RectTransform _child0;
-    private RectTransform Child0
-    {
-        get
-        {
-            if (!_child0) _child0 = transform.GetChild(0) as RectTransform;
-            return _child0;
-        }
-    }
 
     public override void CalculateLayoutInputHorizontal()
     {
         base.CalculateLayoutInputHorizontal();
-        if (_useChildSize)
-            cellSize = new Vector2(Child0.rect.width, cellSize.y);
+        if (_useChildSize && rectChildren.Count != 0)
+            cellSize = new Vector2(rectChildren[0].rect.width, cellSize.y);
     }
 
     public override void CalculateLayoutInputVertical()
     {
         base.CalculateLayoutInputVertical();
-        if (_useChildSize)
-            cellSize = new Vector2(cellSize.x, Child0.rect.height);
+        if (_useChildSize && rectChildren.Count != 0)
+            cellSize = new Vector2(cellSize.x, rectChildren[0].rect.height);
     }
 
     public override void SetLayoutHorizontal() => SetCellsAlongAxis(0);
@@ -58,12 +47,14 @@ public class MioGridLayoutGroup : GridLayoutGroup
             {
                 RectTransform rect = rectChildren[i];
 
-                m_Tracker.Add(this, rect,
+                m_Tracker.Add(this,
+                              rect,
                               DrivenTransformProperties.Anchors | DrivenTransformProperties.AnchoredPosition);
 
                 rect.anchorMin = Vector2.up;
                 rect.anchorMax = Vector2.up;
             }
+
             return;
         }
 
@@ -113,13 +104,13 @@ public class MioGridLayoutGroup : GridLayoutGroup
         }
 
         Vector2 requiredSpace = new Vector2(
-                actualCellCountX * cellSize.x + (actualCellCountX - 1) * spacing.x,
-                actualCellCountY * cellSize.y + (actualCellCountY - 1) * spacing.y
-                );
+                                            actualCellCountX * cellSize.x + (actualCellCountX - 1) * spacing.x,
+                                            actualCellCountY * cellSize.y + (actualCellCountY - 1) * spacing.y
+                                           );
         Vector2 startOffset = new Vector2(
-                GetStartOffset(0, requiredSpace.x),
-                GetStartOffset(1, requiredSpace.y)
-                );
+                                          GetStartOffset(0, requiredSpace.x),
+                                          GetStartOffset(1, requiredSpace.y)
+                                         );
 
         for (int i = 0; i < rectChildren.Count; i++)
         {
