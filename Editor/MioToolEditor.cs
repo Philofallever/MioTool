@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
 namespace MioTool.Editor
@@ -81,6 +83,27 @@ namespace MioTool.Editor
             Undo.RecordObjects(Selection.gameObjects, "ToggleActive");
             foreach (var obj in Selection.gameObjects)
                 obj.SetActive(!obj.activeInHierarchy);
+        }
+
+        [MenuItem("MioTool/Edit/LowerName %#M")]
+        static void LowerName()
+        {
+            var list = Selection.gameObjects.ToList();
+            if (list.Count == 0) return;
+
+            var parent = list[0].transform.parent;
+            list.RemoveAll(x => x.transform.parent != parent);
+            Undo.RecordObjects(list.Select(x => (Object)x).ToArray(), "ToLowerName");
+            list.ForEach(x => x.name = x.name.ToLower());
+            list.ForEach(x =>
+                         {
+                             if (AssetDatabase.Contains(x))
+                             {
+                                 var path = AssetDatabase.GetAssetPath(x);
+                                 AssetDatabase.RenameAsset(path, Path.GetFileName(path).ToLower());
+                                 AssetDatabase.Refresh();
+                             }
+                         });
         }
 
         [MenuItem("Tools/cmds.lua")]
