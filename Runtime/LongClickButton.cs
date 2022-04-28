@@ -1,4 +1,4 @@
-﻿#if MIO_WORK
+﻿#if MIO_EXTERNAL
 using System;
 using UnityEngine;
 using UnityEngine.Events;
