@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if MIO_EXTERNAL
+using UnityEngine;
 using UnityEngine.UI;
 
 // ReSharper disable PossibleLossOfFraction
@@ -189,3 +190,4 @@ namespace MioTool
         }
     }
 }
+#endif

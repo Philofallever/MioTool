@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if MIO_EXTERNAL
+using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 
@@ -28,3 +29,4 @@ namespace MioTool
         }
     }
 }
+#endif
