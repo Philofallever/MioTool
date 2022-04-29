@@ -2,7 +2,7 @@
 using UnityEditor.UI;
 using UnityEngine;
 
-namespace Assets.MioTool.Editor
+namespace MioTool
 {
     [CustomEditor(typeof(MioGridLayoutGroup))]
     public class MioGridLayoutGroupEditor : GridLayoutGroupEditor

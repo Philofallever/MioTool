@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Assets
+namespace MioTool
 {
     public class LongClickButton : Button
     {
