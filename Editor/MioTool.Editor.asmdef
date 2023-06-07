@@ -1,0 +1,16 @@
+{
+    "name": "MioTool.Editor",
+    "references": [
+        "MioTool"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "Test"
+    ]
+}
