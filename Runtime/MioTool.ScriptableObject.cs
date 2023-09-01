@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,8 +7,8 @@ namespace MioTool
     public partial class MioTool
     {
         const string _showSOGroup = "_showSO";
-        const string _soGroup     = _showSOGroup + "/SOGroup";
-        const string _soGroupBtn  = _soGroup + "/Button";
+        const string _soGroup = _showSOGroup + "/SOGroup";
+        const string _soGroupBtn = _soGroup + "/Button";
 
         #region ScriptableObject
 

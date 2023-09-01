@@ -85,7 +85,18 @@ namespace MioTool.Editor
                 obj.SetActive(!obj.activeInHierarchy);
         }
 
-        [MenuItem("MioTool/Edit/LowerName %#M")]
+        [MenuItem("MioTool/Edit/AlginRootCanvas %#M")]
+        static void AglinSamplePic()
+        {
+            if (!Selection.activeGameObject) return;
+
+            var canvas = Selection.activeGameObject.GetComponentInParent<Canvas>();
+            if (!canvas) return;
+
+            Selection.activeGameObject.transform.position = canvas.transform.TransformPoint(Vector3.zero);
+        }
+
+        [MenuItem("MioTool/Edit/LowerName %#L")]
         static void LowerName()
         {
             var list = Selection.gameObjects.ToList();
@@ -110,6 +121,22 @@ namespace MioTool.Editor
         static void CmdMarkDown()
         {
             Process.Start("code", "-r ../client-system/doc/cmd.md");
+        }
+
+        [MenuItem("MioTool/GUID2Path")]
+        static void GUIDToAssetPath()
+        {
+            var str = UnityEngine.GUIUtility.systemCopyBuffer;
+            if(string.IsNullOrEmpty(str)) return;
+
+            var p = AssetDatabase.GUIDToAssetPath(str);
+            Debug.Log(p);
+        }
+
+        [MenuItem("MioTool/UnloadAll")]
+        static void UnLoadAll()
+        {
+            Resources.UnloadUnusedAssets();
         }
     }
 }

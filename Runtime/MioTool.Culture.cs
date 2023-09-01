@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Sirenix.OdinInspector;
+using System;
 using System.Globalization;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace MioTool

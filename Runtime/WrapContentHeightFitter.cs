@@ -94,7 +94,7 @@ namespace MioTool
             m_wrapRect.anchorMax = Vector2.one;
             m_wrapRect.anchorMin = Vector2.zero;
             m_wrapRect.offsetMax = new Vector2(-m_Padding.right, -m_Padding.top);
-            m_wrapRect.offsetMin = new Vector2(m_Padding.left,   m_Padding.bottom);
+            m_wrapRect.offsetMin = new Vector2(m_Padding.left, m_Padding.bottom);
 
             var flags = text || layoutGroup ? DrivenTransformProperties.SizeDeltaY : DrivenTransformProperties.SizeDelta;
             m_Tracker.Add(this, rectTransform, flags);
@@ -108,7 +108,8 @@ namespace MioTool
         }
 
 #if UNITY_EDITOR
-        protected override void OnValidate() {
+        protected override void OnValidate()
+        {
             if (!m_wrapRect && rectTransform.childCount == 1 && rectTransform.GetChild(0).childCount == 0)
                 m_wrapRect = rectTransform.GetChild(0) as RectTransform;
             base.OnValidate();

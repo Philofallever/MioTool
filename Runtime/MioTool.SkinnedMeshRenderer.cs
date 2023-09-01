@@ -74,7 +74,7 @@ namespace MioTool
         }
 
 
-        private void InlineSMR()             => _skinnedRenderer = GetComponent<SkinnedMeshRenderer>();
+        private void InlineSMR() => _skinnedRenderer = GetComponent<SkinnedMeshRenderer>();
         private bool ValidateSkinnedRenderer => ValidateComponent<SkinnedMeshRenderer>(false);
     }
 }

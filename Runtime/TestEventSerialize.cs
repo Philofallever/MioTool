@@ -1,7 +1,5 @@
-﻿using System;
-using Sirenix.OdinInspector.Editor;
-using Sirenix.OdinInspector.Editor.Drawers;
-using Sirenix.Utilities.Editor;
+﻿using Sirenix.OdinInspector.Editor;
+using System;
 using UnityEditor;
 using UnityEngine;
 

@@ -101,7 +101,7 @@ namespace MioTool
                 realAnchor = preferAnchorH;
             else if (limitType.HasFlag(preferAnchorV))
                 realAnchor = preferAnchorV;
-            else ; // 必然单一边限定,且不是最优的边
+            else; // 必然单一边限定,且不是最优的边
 
             Debug.Log($"item应该锚定在相对itemPanel于{realAnchor}边的位置");
 

@@ -27,7 +27,7 @@ namespace MioTool
         [ButtonGroup(_editorAppBtnGroup)]
         public void SwitchPlay()
         {
-            EditorApplication.isPlaying = !EditorApplication.isPlaying; 
+            EditorApplication.isPlaying = !EditorApplication.isPlaying;
         }
     }
 }

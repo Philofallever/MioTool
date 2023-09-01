@@ -6,7 +6,7 @@ namespace MioTool
     public partial class MioTool
     {
         private const string _showCamGroup = nameof(_hasCamera);
-        private const string _camGroup     = _showCamGroup + "/Camera";
+        private const string _camGroup = _showCamGroup + "/Camera";
         private const string _camBtnGroup1 = _camGroup + "/Button1";
         private const string _camBtnGroup2 = _camGroup + "/Button2";
         private const string _camBtnGroup3 = _camGroup + "/Button3";
